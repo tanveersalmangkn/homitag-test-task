@@ -1,15 +1,12 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 //  Name, image, artists, Album, duration.
-export const TrackDetailScreen = ({navigation}) => {
+export const TrackDetailScreen = ({navigation, route}) => {
+  const {urlImg, artistName} = route?.params;
   return (
     <View style={styles.constianer}>
       <Text>Track name</Text>
-      <Image
-        style={styles.image}
-        source={require('../assets/images/trackcover.jpg')}
-        resizeMode="cover"
-      />
+      <Image style={styles.image} source={{uri: urlImg}} resizeMode="cover" />
       <View
         style={{
           flexDirection: 'row',
@@ -17,7 +14,7 @@ export const TrackDetailScreen = ({navigation}) => {
           marginTop: 10,
         }}>
         <View>
-          <Text style={styles.name}>Artists Name</Text>
+          <Text style={styles.name}>{artistName}</Text>
           <Text style={styles.text}>Album Name</Text>
         </View>
         <Text style={styles.text}>3:38</Text>

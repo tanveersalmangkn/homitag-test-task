@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
 export const PlaylistComponent = ({title, Numberoftracks, onPress, urlImg}) => {
-  console.log('url', urlImg);
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image style={styles.image} source={{uri: urlImg}} resizeMode="contain" />
@@ -15,7 +14,7 @@ export const PlaylistComponent = ({title, Numberoftracks, onPress, urlImg}) => {
         }}>
         {title}
       </Text>
-      <Text style={{color: 'white'}}>{Numberoftracks}Tracks</Text>
+      <Text style={{color: 'white'}}>{Numberoftracks} Tracks</Text>
     </TouchableOpacity>
   );
 };
@@ -27,9 +26,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   image: {
-    width: '100%',
+    width: '80%',
     alignSelf: 'center',
     marginTop: 20,
-    height: '100%',
+    height: '70%',
+    aspectRatio: 1 / 1,
+    // height: 120
   },
 });

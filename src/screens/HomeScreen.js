@@ -110,6 +110,8 @@ export const HomeScreen = ({navigation}) => {
             onPress={() => {
               navigation.navigate('TrackListScreen', {
                 playlistData: {playlistData},
+                urlImg: item?.images?.[0]?.url,
+                numberOfTracks: item?.tracks?.total,
               });
             }}
           />

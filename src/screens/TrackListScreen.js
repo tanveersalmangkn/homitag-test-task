@@ -11,23 +11,26 @@ import {PlaylistComponent} from '../components/PlaylistComponent';
 import {TrackListComponent} from '../components/TracklistComponent';
 
 export const TrackListScreen = ({navigation, route}) => {
-  const {artistsName, popularity, playlistData} = route?.params;
-  console.log(playlistData, 'playlistDataaaaa');
-  console.log(artistsName, 'data');
+  const {urlImg, playlistData, popularity, Numberoftracks} = route?.params;
+  console.log(urlImg, 'urlImg');
 
   return (
     <ScrollView style={styles.constianer}>
-      <PlaylistComponent />
+      <PlaylistComponent urlImg={urlImg} Numberoftracks={Numberoftracks} />
       {playlistData?.playlistData.map(item => {
         console.log({item});
         return (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('TrackDetailScreen');
+              navigation.navigate('TrackDetailScreen', {
+                urlImg: urlImg,
+                artistName: item?.name,
+              });
             }}>
             <TrackListComponent
               artistName={item?.owner?.display_name}
               popularity={popularity}
+              uriImage={urlImg}
             />
           </TouchableOpacity>
         );

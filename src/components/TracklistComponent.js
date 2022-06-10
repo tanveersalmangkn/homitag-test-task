@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 
-export const TrackListComponent = ({artistName, popularity}) => {
+export const TrackListComponent = ({artistName, popularity, uriImage}) => {
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
-        source={require('../assets/images/trackcover.jpg')}
+        source={{uri: uriImage}}
         resizeMode="contain"
       />
       <View>
